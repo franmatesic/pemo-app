@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "171633990879",
+    "project_id": "pemo-db",
+    "storage_bucket": "pemo-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171633990879:android:a8cf79caa8465dcdce1d6a",
+        "android_client_info": {
+          "package_name": "hr.franmatesic.pemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171633990879-8g2vpes5jg1od4a42spt3ccuit1tmo6n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hr.franmatesic.pemo",
+            "certificate_hash": "c4bb62e9275534a53aeaf5e7e6e5daad0f834c4a"
+          }
+        },
+        {
+          "client_id": "171633990879-3ku18mjh5l1iaf2af8o8cb9f490sdip1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9wjEZbUmx3NwLtq5s_cZ9QXuYwmNBvbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171633990879-3ku18mjh5l1iaf2af8o8cb9f490sdip1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "171633990879-n4bf817qca5opeuup80af30lsfr67fi8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "hr.franmatesic.pemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
