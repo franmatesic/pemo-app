@@ -2,7 +2,7 @@
 
 ## Pokretanje aplikacije
 
-- Na Android uređaj skinuti `pemo.apk` s [Github Releases](https://github.com/franmatesic/pemo-app/releases/tag/1.0.0) ili s [Google drive](https://drive.google.com/drive/folders/1JdtfK3bPigpLpytObwevEyAx4nnSLujF?usp=sharing)-a, gdje je i dokumentacija projekta
+- Na Android uređaj skinuti `pemo.apk` s [Github Releases](https://github.com/franmatesic/pemo-app/releases/tag/v1.0.0) ili s [Google drive](https://drive.google.com/drive/folders/1JdtfK3bPigpLpytObwevEyAx4nnSLujF?usp=sharing)-a, gdje je i dokumentacija projekta
 - Pokrenuti aplikaciju i trebala bi se instalirati
 
 ## Predefinirani korisnici
