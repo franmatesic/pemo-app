@@ -16,7 +16,7 @@ class UserRepository {
   Future createUser(PemoUser user) async {
     final documentReference = _firebaseFirestore.collection(collection).doc(user.id);
     await documentReference.set({
-      PemoUser.keyUid: user.id,
+      PemoUser.keyId: user.id,
       PemoUser.keyEmail: user.email,
       PemoUser.keyProvider: user.provider,
       PemoUser.keyName: user.name,
@@ -31,7 +31,7 @@ class UserRepository {
   Future updateUser(PemoUser user) async {
     final documentReference = _firebaseFirestore.collection(collection).doc(user.id);
     await documentReference.update({
-      PemoUser.keyUid: user.id,
+      PemoUser.keyId: user.id,
       PemoUser.keyEmail: user.email,
       PemoUser.keyProvider: user.provider,
       PemoUser.keyName: user.name,
@@ -43,10 +43,10 @@ class UserRepository {
     });
   }
 
-  Future<PemoUser?> getUser(String uid) async {
+  Future<PemoUser?> getUser(String id) async {
     PemoUser? user;
-    await _firebaseFirestore.collection(collection).doc(uid).get().then((DocumentSnapshot snapshot) => user = PemoUser.all(
-        snapshot[PemoUser.keyUid],
+    await _firebaseFirestore.collection(collection).doc(id).get().then((DocumentSnapshot snapshot) => user = PemoUser.all(
+        snapshot[PemoUser.keyId],
         snapshot[PemoUser.keyEmail],
         snapshot[PemoUser.keyProvider],
         snapshot[PemoUser.keyName],
@@ -64,8 +64,8 @@ class UserRepository {
         : _firebaseAuth.currentUser?.delete());
   }
 
-  Future<bool> userExists(String uid) async {
-    return (await _firebaseFirestore.collection(collection).doc(uid).get()).exists;
+  Future<bool> userExists(String id) async {
+    return (await _firebaseFirestore.collection(collection).doc(id).get()).exists;
   }
 
   Future uploadAndUpdateUserImage(PemoUser user, File file) async {

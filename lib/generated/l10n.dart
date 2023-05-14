@@ -609,6 +609,546 @@ class S {
       args: [],
     );
   }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Where from?`
+  String get where_from {
+    return Intl.message(
+      'Where from?',
+      name: 'where_from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Where to?`
+  String get where_to {
+    return Intl.message(
+      'Where to?',
+      name: 'where_to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Now`
+  String get now {
+    return Intl.message(
+      'Now',
+      name: 'now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `When do you want to be picked up?`
+  String get when {
+    return Intl.message(
+      'When do you want to be picked up?',
+      name: 'when',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chat`
+  String get chat {
+    return Intl.message(
+      'Chat',
+      name: 'chat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rides`
+  String get rides {
+    return Intl.message(
+      'Rides',
+      name: 'rides',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Past`
+  String get past {
+    return Intl.message(
+      'Past',
+      name: 'past',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rebook`
+  String get rebook {
+    return Intl.message(
+      'Rebook',
+      name: 'rebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help`
+  String get help {
+    return Intl.message(
+      'Help',
+      name: 'help',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Become a driver`
+  String get become_driver {
+    return Intl.message(
+      'Become a driver',
+      name: 'become_driver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set pickup time`
+  String get set_time {
+    return Intl.message(
+      'Set pickup time',
+      name: 'set_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set pickup point`
+  String get set_source {
+    return Intl.message(
+      'Set pickup point',
+      name: 'set_source',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set destination`
+  String get set_destination {
+    return Intl.message(
+      'Set destination',
+      name: 'set_destination',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New ride`
+  String get new_ride {
+    return Intl.message(
+      'New ride',
+      name: 'new_ride',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash`
+  String get cash {
+    return Intl.message(
+      'Cash',
+      name: 'cash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Brand`
+  String get brand {
+    return Intl.message(
+      'Brand',
+      name: 'brand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Model`
+  String get model {
+    return Intl.message(
+      'Model',
+      name: 'model',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Color`
+  String get color {
+    return Intl.message(
+      'Color',
+      name: 'color',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max passengers`
+  String get max_passengers {
+    return Intl.message(
+      'Max passengers',
+      name: 'max_passengers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preferred payment methods`
+  String get preferred_payment_methods {
+    return Intl.message(
+      'Preferred payment methods',
+      name: 'preferred_payment_methods',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vehicle`
+  String get vehicle {
+    return Intl.message(
+      'Vehicle',
+      name: 'vehicle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose a vehicle`
+  String get vehicle_missing {
+    return Intl.message(
+      'Choose a vehicle',
+      name: 'vehicle_missing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input locations`
+  String get location_missing {
+    return Intl.message(
+      'Input locations',
+      name: 'location_missing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ride options`
+  String get ride_options {
+    return Intl.message(
+      'Ride options',
+      name: 'ride_options',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Today at `
+  String get ride_time_today {
+    return Intl.message(
+      'Today at ',
+      name: 'ride_time_today',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tomorrow at `
+  String get ride_time_tomorrow {
+    return Intl.message(
+      'Tomorrow at ',
+      name: 'ride_time_tomorrow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close rides`
+  String get close_rides {
+    return Intl.message(
+      'Close rides',
+      name: 'close_rides',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My rides`
+  String get my_rides {
+    return Intl.message(
+      'My rides',
+      name: 'my_rides',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continue_ {
+    return Intl.message(
+      'Continue',
+      name: 'continue_',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure?`
+  String get sure {
+    return Intl.message(
+      'Are you sure?',
+      name: 'sure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set drop-off point`
+  String get set_stop {
+    return Intl.message(
+      'Set drop-off point',
+      name: 'set_stop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request a ride`
+  String get request_ride {
+    return Intl.message(
+      'Request a ride',
+      name: 'request_ride',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preferred payment method`
+  String get preferred_payment_method {
+    return Intl.message(
+      'Preferred payment method',
+      name: 'preferred_payment_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passenger count`
+  String get passenger_count {
+    return Intl.message(
+      'Passenger count',
+      name: 'passenger_count',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Message`
+  String get message {
+    return Intl.message(
+      'Message',
+      name: 'message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set pickup point`
+  String get set_pickup {
+    return Intl.message(
+      'Set pickup point',
+      name: 'set_pickup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ride requests`
+  String get ride_requests {
+    return Intl.message(
+      'Ride requests',
+      name: 'ride_requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My requests`
+  String get my_requests {
+    return Intl.message(
+      'My requests',
+      name: 'my_requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve`
+  String get approve {
+    return Intl.message(
+      'Approve',
+      name: 'approve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Deny`
+  String get deny {
+    return Intl.message(
+      'Deny',
+      name: 'deny',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already requested this ride`
+  String get request_exists {
+    return Intl.message(
+      'Already requested this ride',
+      name: 'request_exists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vehicles`
+  String get vehicles {
+    return Intl.message(
+      'Vehicles',
+      name: 'vehicles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New vehicle`
+  String get new_vehicle {
+    return Intl.message(
+      'New vehicle',
+      name: 'new_vehicle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input a brand`
+  String get brand_missing {
+    return Intl.message(
+      'Input a brand',
+      name: 'brand_missing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input a model`
+  String get model_missing {
+    return Intl.message(
+      'Input a model',
+      name: 'model_missing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input a color`
+  String get color_missing {
+    return Intl.message(
+      'Input a color',
+      name: 'color_missing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History`
+  String get history {
+    return Intl.message(
+      'History',
+      name: 'history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Multiple dates`
+  String get multiple_dates {
+    return Intl.message(
+      'Multiple dates',
+      name: 'multiple_dates',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

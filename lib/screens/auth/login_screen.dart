@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: Palette.primary,
+              color: Palette.white,
             ),
           ),
           SafeArea(
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     icon: const Icon(
                       Icons.chevron_left_outlined,
                       size: 32,
-                      color: Colors.white,
+                      color: Palette.primary,
                     ),
                   ),
                 ),
@@ -65,11 +65,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Text(
                         welcomeBack[0],
-                        style: textStyle(Colors.white, FontSize.xxl),
+                        style: textStyle(Palette.primary, FontSize.xxl),
                       ),
                       Text(
                         welcomeBack[1],
-                        style: textStyle(Colors.white, FontSize.xxl),
+                        style: textStyle(Palette.primary, FontSize.xxl),
                       ),
                     ],
                   ),
@@ -81,7 +81,6 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               children: [
                 const Spacer(),
-                Image.asset('assets/images/blob3.png'),
                 Container(
                   color: Colors.white,
                   child: Column(
@@ -117,18 +116,18 @@ class _LoginScreenState extends State<LoginScreen> {
                               PemoPasswordField(
                                 onChanged: (value) => _password = value,
                               ),
-                              const SizedBox(height: 10),
+                              const SizedBox(height: 15),
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: RichText(
                                   text: TextSpan(
-                                    style: boldTextStyle(Palette.primary, FontSize.md),
+                                    style: boldTextStyle(Palette.primary, FontSize.sm),
                                     text: intl.forgotPassword,
                                     recognizer: TapGestureRecognizer()..onTap = () {},
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 5),
+                              const SizedBox(height: 20),
                               PemoButton(
                                 backgroundColor: Palette.primary,
                                 foregroundColor: Colors.white,
@@ -142,44 +141,49 @@ class _LoginScreenState extends State<LoginScreen> {
                                   intl.login,
                                 ),
                               ),
-                              const SizedBox(height: 5),
+                              const SizedBox(height: 20),
                               Row(
                                 children: [
                                   Expanded(
-                                    child: PemoButton(
-                                      backgroundColor: Colors.red,
-                                      foregroundColor: Colors.white,
-                                      fullWidth: false,
+                                    child: OutlinedButton(
+                                      style: OutlinedButton.styleFrom(
+                                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                        minimumSize: const Size.fromHeight(40),
+                                        side: const BorderSide(color: Colors.red),
+                                      ),
                                       onPressed: () => userService.handleGoogleSignIn(),
                                       child: Wrap(
                                         crossAxisAlignment: WrapCrossAlignment.center,
                                         spacing: 20,
-                                        children: const [
-                                          Icon(FontAwesomeIcons.google, size: 20, color: Colors.white),
-                                          Text('Google'),
+                                        children: [
+                                          const Icon(FontAwesomeIcons.google, size: 20, color: Colors.red),
+                                          Text('Google', style: textStyle(Colors.red, FontSize.md)),
                                         ],
                                       ),
                                     ),
                                   ),
                                   const SizedBox(width: 20),
                                   Expanded(
-                                    child: PemoButton(
-                                      backgroundColor: Colors.blue.shade800,
-                                      foregroundColor: Colors.white,
-                                      fullWidth: false,
+                                    child: OutlinedButton(
+                                      style: OutlinedButton.styleFrom(
+                                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                        minimumSize: const Size.fromHeight(40),
+                                        side: BorderSide(color: Colors.blue.shade800),
+                                      ),
                                       onPressed: () => userService.handleFacebookSignIn(),
                                       child: Wrap(
                                         crossAxisAlignment: WrapCrossAlignment.center,
                                         spacing: 20,
-                                        children: const [
-                                          Icon(FontAwesomeIcons.facebook, size: 20, color: Colors.white),
-                                          Text('Facebook'),
+                                        children: [
+                                          Icon(FontAwesomeIcons.facebook, size: 20, color: Colors.blue.shade800),
+                                          Text('Facebook', style: textStyle(Colors.blue.shade800, FontSize.md)),
                                         ],
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
+                              const SizedBox(height: 10),
                             ],
                           ),
                         ),

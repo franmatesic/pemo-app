@@ -61,7 +61,7 @@ class UserService extends ChangeNotifier {
       return;
     }
     _authService.user!.role = role;
-    //TODO rest api call
+    _authService.updateLocalUserData();
     await _userRepository.updateUser(_authService.user!);
   }
 
@@ -73,6 +73,7 @@ class UserService extends ChangeNotifier {
     _authService.user!.gender = gender;
     _authService.user!.dateOfBirth = dateOfBirth;
     _authService.user!.phoneNumber = phoneNumber;
+    _authService.updateLocalUserData();
     await _userRepository.updateUser(_authService.user!);
     if (imageFile != null) {
       await _userRepository.uploadAndUpdateUserImage(_authService.user!, imageFile);

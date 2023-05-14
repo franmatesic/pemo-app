@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pemo/screens/auth/register_screen.dart';
 
 import '../../generated/l10n.dart';
-import '../../main.dart';
 import '../../theme/light_theme.dart';
 import '../../utils/navigation.dart';
 import '../../widgets/pemo_button.dart';
@@ -21,13 +20,16 @@ class AuthScreen extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: Palette.complementary,
+              color: Palette.white,
             ),
           ),
-          Center(
-            child: Text(
-              appName,
-              style: textStyle(Palette.primary, FontSize.xxl),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: Center(
+              child: Image.asset(
+                'assets/images/logo.png',
+                color: Palette.primary,
+              ),
             ),
           ),
           SafeArea(
@@ -44,7 +46,7 @@ class AuthScreen extends StatelessWidget {
                     children: [
                       PemoButton(
                         backgroundColor: Palette.primary,
-                        foregroundColor: Palette.complementary,
+                        foregroundColor: Palette.white,
                         onPressed: () => nextScreen(context, const LoginScreen()),
                         child: Text(
                           intl.login,

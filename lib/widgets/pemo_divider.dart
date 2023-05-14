@@ -5,9 +5,10 @@ class PemoDivider extends StatelessWidget {
   final Color color;
   final String text;
   final double height;
+  final double thickness;
   final bool fullWidth;
 
-  const PemoDivider({super.key, this.color = Palette.ternary, this.text = '', this.height = 20, this.fullWidth = false});
+  const PemoDivider({super.key, this.color = Palette.neutral800, this.text = '', this.height = 20, this.fullWidth = false, this.thickness = 1});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class PemoDivider extends StatelessWidget {
                   endIndent: 20,
                   color: color,
                   height: height,
-                  thickness: 1,
+                  thickness: thickness,
                 ),
               ),
               Text(
@@ -36,7 +37,7 @@ class PemoDivider extends StatelessWidget {
                   endIndent: edgeMargin,
                   color: color,
                   height: height,
-                  thickness: 1,
+                  thickness: thickness,
                 ),
               ),
             ],
@@ -46,7 +47,7 @@ class PemoDivider extends StatelessWidget {
             endIndent: edgeMargin,
             color: color,
             height: height,
-            thickness: 1,
+            thickness: thickness,
           );
   }
 }

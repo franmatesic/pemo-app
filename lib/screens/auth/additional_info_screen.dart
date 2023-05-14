@@ -1,8 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:pemo/model/pemo_role.dart';
-import 'package:pemo/screens/home_screen.dart';
+import 'package:pemo/model/enums.dart';
+import 'package:pemo/screens/main_screen.dart';
 import 'package:pemo/theme/light_theme.dart';
 import 'package:pemo/utils/navigation.dart';
 import 'package:pemo/widgets/pemo_date_picker.dart';
@@ -34,7 +32,41 @@ class _AdditionalInfoScreenState extends State<AdditionalInfoScreen> {
   String? _gender;
   String? _dateOfBirth;
   String? _phoneNumber;
-  File? _imageFile;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, loadStep);
+  }
+
+  loadStep() {
+    final UserService userService = UserService(context);
+    final user = userService.getSignedInUser();
+
+    if (user.role == null) {
+      return;
+    }
+    _passengerChosen = user.role == PemoRole.passenger;
+    _currentStep++;
+
+    if (user.name == null) {
+      return;
+    }
+    _name = user.name;
+    _currentStep++;
+
+    if (user.gender == null) {
+      return;
+    }
+    _gender = user.gender;
+    _currentStep++;
+
+    if (user.dateOfBirth == null) {
+      return;
+    }
+    _dateOfBirth = user.dateOfBirth;
+    _currentStep++;
+  }
 
   stepSelected(int step) {
     setState(() => _currentStep = step);
@@ -47,7 +79,7 @@ class _AdditionalInfoScreenState extends State<AdditionalInfoScreen> {
     if (_currentStep == 4) {
       userService.handleAddUserRole(_passengerChosen ? PemoRole.passenger : PemoRole.driver);
       userService.handleAdditionalUserData(_name!, _gender!, _dateOfBirth!, _phoneNumber!, null);
-      nextScreenReplace(context, const HomeScreen());
+      nextScreenReplace(context, const MainScreen());
     }
     _currentStep < 4 ? setState(() => _currentStep += 1) : null;
   }
@@ -98,7 +130,7 @@ class _AdditionalInfoScreenState extends State<AdditionalInfoScreen> {
                           children: [
                             PemoButton(
                               fullWidth: false,
-                              backgroundColor: Palette.secondary,
+                              backgroundColor: Palette.primary,
                               foregroundColor: Palette.primary,
                               width: 150,
                               height: 150,
@@ -110,12 +142,12 @@ class _AdditionalInfoScreenState extends State<AdditionalInfoScreen> {
                               },
                               child: Text(
                                 intl.passenger,
-                                style: boldTextStyle(Palette.primary, FontSize.lg),
+                                style: boldTextStyle(_passengerChosen ? Palette.white : Palette.primary, FontSize.lg),
                               ),
                             ),
                             PemoButton(
                               fullWidth: false,
-                              backgroundColor: Palette.secondary,
+                              backgroundColor: Palette.primary,
                               foregroundColor: Palette.primary,
                               width: 150,
                               height: 150,
@@ -127,7 +159,7 @@ class _AdditionalInfoScreenState extends State<AdditionalInfoScreen> {
                               },
                               child: Text(
                                 intl.driver,
-                                style: boldTextStyle(Palette.primary, FontSize.lg),
+                                style: boldTextStyle(!_passengerChosen ? Palette.white : Palette.primary, FontSize.lg),
                               ),
                             ),
                           ],
@@ -185,52 +217,52 @@ class _AdditionalInfoScreenState extends State<AdditionalInfoScreen> {
                         ),
                         const SizedBox(height: 40),
                         PemoButton(
-                          backgroundColor: Palette.secondary,
+                          backgroundColor: Palette.primary,
                           foregroundColor: Palette.primary,
-                          outlined: _gender != 'MALE',
+                          outlined: _gender != PemoGender.male,
                           onPressed: () {
-                            setState(() => _gender = _gender == 'MALE' ? null : 'MALE');
+                            setState(() => _gender = _gender == PemoGender.male ? null : PemoGender.male);
                             _formKeys[1].currentState?.reset();
                           },
                           child: Text(
                             intl.male,
-                            style: boldTextStyle(Palette.primary, FontSize.md),
+                            style: boldTextStyle(_gender == PemoGender.male ? Palette.white : Palette.primary, FontSize.md),
                           ),
                         ),
                         const SizedBox(height: 10),
                         PemoButton(
-                          backgroundColor: Palette.secondary,
+                          backgroundColor: Palette.primary,
                           foregroundColor: Palette.primary,
-                          outlined: _gender != 'FEMALE',
+                          outlined: _gender != PemoGender.female,
                           onPressed: () {
-                            setState(() => _gender = _gender == 'FEMALE' ? null : 'FEMALE');
+                            setState(() => _gender = _gender == PemoGender.female ? null : PemoGender.female);
                             _formKeys[1].currentState?.reset();
                           },
                           child: Text(
                             intl.female,
-                            style: boldTextStyle(Palette.primary, FontSize.md),
+                            style: boldTextStyle(_gender == PemoGender.female ? Palette.white : Palette.primary, FontSize.md),
                           ),
                         ),
                         const SizedBox(height: 10),
                         PemoButton(
-                          backgroundColor: Palette.secondary,
+                          backgroundColor: Palette.primary,
                           foregroundColor: Palette.primary,
-                          outlined: _gender == null || _gender == 'MALE' || _gender == 'FEMALE',
+                          outlined: _gender == null || _gender == PemoGender.male || _gender == PemoGender.female,
                           onPressed: () {
-                            setState(() => _gender = _gender == 'OTHER' ? null : 'OTHER');
+                            setState(() => _gender = _gender == PemoGender.other ? null : PemoGender.other);
                           },
                           child: Text(
                             intl.other,
-                            style: boldTextStyle(Palette.primary, FontSize.md),
+                            style: boldTextStyle(_gender == PemoGender.other ? Palette.white : Palette.primary, FontSize.md),
                           ),
                         ),
                         Form(
                           key: _formKeys[1],
                           child: PemoTextField(
-                            enabled: _gender != null && _gender != 'MALE' && _gender != 'FEMALE',
+                            enabled: _gender != null && _gender != PemoGender.male && _gender != PemoGender.female,
                             labelText: intl.gender,
                             validator: (String? value) {
-                              if (_gender == null || _gender == 'OTHER' || _gender!.isEmpty) {
+                              if (_gender == null || _gender == PemoGender.other || _gender!.isEmpty) {
                                 return intl.gender_missing;
                               }
                               return null;

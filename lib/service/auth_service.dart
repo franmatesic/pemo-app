@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pemo/screens/main_screen.dart';
 import 'package:pemo/tuple.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,7 +10,6 @@ import '../model/pemo_user.dart';
 import '../repository/user_repository.dart';
 import '../screens/auth/additional_info_screen.dart';
 import '../screens/auth/auth_screen.dart';
-import '../screens/home_screen.dart';
 
 enum AuthProvider {
   email('EMAIL'),
@@ -59,6 +59,10 @@ class AuthService extends ChangeNotifier {
     await _setSignedInPreference(true);
     await _setUserPreferences(_user!, _accessToken);
     notifyListeners();
+  }
+
+  Future updateLocalUserData() async {
+    await _setUserPreferences(_user!, _accessToken);
   }
 
   Future registerWithEmailAndPassword(String email, String password) async {
@@ -154,13 +158,12 @@ class AuthService extends ChangeNotifier {
     _user = null;
     _accessToken = null;
     _signedIn = false;
-    await _setSignedInPreference(false);
     await _removeUserPreferences();
     notifyListeners();
   }
 
   Future<Tuple<bool, Widget>> getRedirect() async {
-    if (!isSignedIn) {
+    if (!_signedIn) {
       return Tuple(false, const AuthScreen());
     }
     final userPrefs = await _getUserPreferences();
@@ -175,7 +178,7 @@ class AuthService extends ChangeNotifier {
     if (_user!.role == null || _user!.name == null || _user!.gender == null || _user!.dateOfBirth == null || _user!.phoneNumber == null) {
       return Tuple(true, const AdditionalInfoScreen());
     }
-    return Tuple(true, const HomeScreen());
+    return Tuple(true, const MainScreen());
   }
 
   Future<bool> _getSignedInPreference() async {
@@ -192,7 +195,7 @@ class AuthService extends ChangeNotifier {
     final sharedPreferences = await SharedPreferences.getInstance();
     return Tuple(
         PemoUser.all(
-            sharedPreferences.getString(PemoUser.keyUid),
+            sharedPreferences.getString(PemoUser.keyId),
             sharedPreferences.getString(PemoUser.keyEmail),
             sharedPreferences.getString(PemoUser.keyProvider),
             sharedPreferences.getString(PemoUser.keyName),
@@ -206,7 +209,7 @@ class AuthService extends ChangeNotifier {
 
   Future _setUserPreferences(PemoUser user, String? token) async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.setString(PemoUser.keyUid, user.id!);
+    sharedPreferences.setString(PemoUser.keyId, user.id!);
     sharedPreferences.setString(PemoUser.keyEmail, user.email!);
     sharedPreferences.setString(PemoUser.keyProvider, user.provider!);
     if (user.role != null) {
@@ -234,7 +237,8 @@ class AuthService extends ChangeNotifier {
 
   Future _removeUserPreferences() async {
     final sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.remove(PemoUser.keyUid);
+    sharedPreferences.setBool(_signedInPreference, false);
+    sharedPreferences.remove(PemoUser.keyId);
     sharedPreferences.remove(PemoUser.keyEmail);
     sharedPreferences.remove(PemoUser.keyProvider);
     sharedPreferences.remove(PemoUser.keyRole);

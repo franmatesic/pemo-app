@@ -14,7 +14,7 @@ dependencies:
 
   firebase_core: ^2.4.1
   firebase_storage: ^11.0.10
-  cloud_firestore: ^4.3.1
+  cloud_firestore: ^4.7.0
   google_sign_in: ^5.4.3
   flutter_facebook_auth: ^5.0.7
   firebase_auth: ^4.2.5
@@ -31,6 +31,14 @@ dependencies:
   font_awesome_flutter: ^10.3.0
   image_picker: ^0.8.6+1
   another_flushbar: ^1.12.29
+  google_maps_flutter: ^2.2.6
+  geolocator: ^9.0.2
+  google_places_flutter: ^2.0.5
+  geocoding: ^2.1.0
+  google_map_polyline_new: ^0.3.0+2
+  flutter_svg: ^2.0.5
+  multi_select_flutter: ^4.1.3
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:

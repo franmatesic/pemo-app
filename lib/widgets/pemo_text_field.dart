@@ -42,7 +42,7 @@ class PemoTextField extends StatelessWidget {
           ),
         ),
         labelText: labelText,
-        labelStyle: textStyle(enabled ? color : Palette.ternary, FontSize.md),
+        labelStyle: textStyle(enabled ? color : Palette.neutral800, FontSize.md),
         prefixIconColor: color,
         prefixIcon: prefixIcon,
         contentPadding: const EdgeInsets.symmetric(

@@ -17,16 +17,16 @@ class PemoButton extends StatelessWidget {
       required this.child,
       this.fullWidth = true,
       this.width = 100,
-      this.height = 50,
+      this.height = 45,
       this.backgroundColor = Palette.primary,
-      this.foregroundColor = Palette.complementary,
+      this.foregroundColor = Palette.white,
       this.outlined = false});
 
   @override
   Widget build(BuildContext context) {
     final actualWidth = fullWidth ? double.infinity : width;
     final style = ButtonStyle(
-      backgroundColor: MaterialStatePropertyAll(outlined ? null : backgroundColor),
+      backgroundColor: MaterialStatePropertyAll(outlined ? Colors.transparent : backgroundColor),
       foregroundColor: MaterialStatePropertyAll(foregroundColor),
       minimumSize: MaterialStatePropertyAll(Size(actualWidth, height)),
       side: MaterialStatePropertyAll(

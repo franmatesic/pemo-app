@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PemoUser {
-  static const collection = "users";
   static const imageLocalUrl = "/profile/";
 
-  static const keyUid = "id";
+  static const keyId = "id";
   static const keyEmail = "email";
   static const keyProvider = "provider";
   static const keyName = "name";
