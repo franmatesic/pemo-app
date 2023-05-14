@@ -7,6 +7,7 @@ class PemoRide {
   static const keyCreatedAt = "createdAt";
   static const keyStart = "start";
   static const keyEnd = "end";
+  static const keyPrice = "price";
   static const keyPreferredPaymentMethods = "preferredPaymentMethods";
   static const keyStartsAt = "startsAt";
   static const keyUpdatedAt = "updatedAt";
@@ -18,13 +19,14 @@ class PemoRide {
   String vehicleId;
   LatLng start;
   LatLng end;
+  double price;
   List<String> preferredPaymentMethods;
   DateTime startsAt;
   DateTime? updatedAt;
   DateTime? cancelledAt;
 
-  PemoRide(this.id, this.userId, this.vehicleId, this.start, this.end, this.preferredPaymentMethods, this.startsAt, this.createdAt);
+  PemoRide(this.id, this.userId, this.vehicleId, this.start, this.end, this.price, this.preferredPaymentMethods, this.startsAt, this.createdAt);
 
-  PemoRide.all(this.id, this.userId, this.vehicleId, this.start, this.end, this.preferredPaymentMethods, this.startsAt, this.createdAt,
+  PemoRide.all(this.id, this.userId, this.vehicleId, this.start, this.end, this.price, this.preferredPaymentMethods, this.startsAt, this.createdAt,
       this.updatedAt, this.cancelledAt);
 }

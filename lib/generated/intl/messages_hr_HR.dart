@@ -110,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Preferirani način plaćanja"),
         "preferred_payment_methods":
             MessageLookupByLibrary.simpleMessage("Preferirani načini plaćanja"),
+        "price": MessageLookupByLibrary.simpleMessage("Cijena"),
+        "price_missing": MessageLookupByLibrary.simpleMessage("Unesite cijenu"),
         "provider_error": MessageLookupByLibrary.simpleMessage(
             "Račun već postoji od drugog davatelja usluga"),
         "rebook": MessageLookupByLibrary.simpleMessage("Ponovi"),

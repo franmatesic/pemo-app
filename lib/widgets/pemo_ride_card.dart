@@ -69,33 +69,47 @@ class PemoRideCard extends StatelessWidget {
                 const SizedBox(height: 10),
               ],
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.schedule, size: 20),
-                  const SizedBox(width: 5),
-                  Text(
-                    formatDateTimeDto(ride.ride.startsAt),
-                    style: textStyle(Palette.black, FontSize.sm),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  const Icon(Icons.swipe_down_alt_outlined, size: 20),
-                  const SizedBox(width: 5),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        ride.placeFrom,
-                        style: textStyle(Palette.black, FontSize.sm),
+                      Row(
+                        children: [
+                          const Icon(Icons.schedule, size: 20),
+                          const SizedBox(width: 5),
+                          Text(
+                            formatDateTimeDto(ride.ride.startsAt),
+                            style: textStyle(Palette.black, FontSize.sm),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 5),
-                      Text(
-                        ride.placeTo,
-                        style: textStyle(Palette.black, FontSize.sm),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          const Icon(Icons.swipe_down_alt_outlined, size: 20),
+                          const SizedBox(width: 5),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                ride.placeFrom,
+                                style: textStyle(Palette.black, FontSize.sm),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                ride.placeTo,
+                                style: textStyle(Palette.black, FontSize.sm),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
+                  ),
+                  Text(
+                    "${ride.ride.price.toStringAsFixed(2)}€",
+                    style: boldTextStyle(Palette.black, (asHistory || asOwner) ? FontSize.md : FontSize.lg),
                   ),
                 ],
               ),

@@ -109,5 +109,7 @@
   "model_missing": "Unesite model",
   "color_missing": "Unesite boju",
   "history": "Povijest",
-  "multiple_dates": "Više datuma"
+  "multiple_dates": "Više datuma",
+  "price": "Cijena",
+  "price_missing": "Unesite cijenu"
 }

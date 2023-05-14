@@ -126,11 +126,6 @@ class _HomeScreenState extends State<HomeScreen> {
               readOnly: true,
             ),
             const SizedBox(height: 60),
-            if (_closestRides.isEmpty) ...[
-              const Center(
-                child: CircularProgressIndicator(),
-              ),
-            ],
             if (_closestRides.isNotEmpty) ...[
               Text(intl.close_rides, style: boldTextStyle(Palette.black, FontSize.xmd)),
               const SizedBox(height: 5),

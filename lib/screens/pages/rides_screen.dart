@@ -107,21 +107,10 @@ class _RidesScreenState extends State<RidesScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (_myRides.isEmpty) ...[
-                  const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                ],
                 if (_myRides.isNotEmpty) ...[
                   Text(intl.my_rides, style: boldTextStyle(Palette.black, FontSize.xmd)),
                   const SizedBox(height: 5),
                   ..._myRides.map((ride) => PemoRideCard(ride, asOwner: true)).toList(),
-                ],
-                const SizedBox(height: 40),
-                if (_myRequests.isEmpty) ...[
-                  const Center(
-                    child: CircularProgressIndicator(),
-                  ),
                 ],
                 if (_myRequests.isNotEmpty) ...[
                   Text(intl.my_requests, style: boldTextStyle(Palette.black, FontSize.xmd)),

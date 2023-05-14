@@ -366,33 +366,47 @@ class _RideScreenState extends State<RideScreen> {
               ),
               const SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.schedule, size: 20),
-                  const SizedBox(width: 5),
-                  Text(
-                    formatDate(widget.ride.ride.startsAt),
-                    style: textStyle(Palette.black, FontSize.md),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: [
-                  const Icon(Icons.swipe_down_alt_outlined, size: 20),
-                  const SizedBox(width: 5),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        widget.ride.placeFrom,
-                        style: textStyle(Palette.black, FontSize.md),
+                      Row(
+                        children: [
+                          const Icon(Icons.schedule, size: 20),
+                          const SizedBox(width: 5),
+                          Text(
+                            formatDate(widget.ride.ride.startsAt),
+                            style: textStyle(Palette.black, FontSize.md),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 5),
-                      Text(
-                        widget.ride.placeTo,
-                        style: textStyle(Palette.black, FontSize.md),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          const Icon(Icons.swipe_down_alt_outlined, size: 20),
+                          const SizedBox(width: 5),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.ride.placeFrom,
+                                style: textStyle(Palette.black, FontSize.sm),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                widget.ride.placeTo,
+                                style: textStyle(Palette.black, FontSize.sm),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
+                  ),
+                  Text(
+                    "${widget.ride.ride.price.toStringAsFixed(2)}€",
+                    style: boldTextStyle(Palette.black, FontSize.xl),
                   ),
                 ],
               ),
@@ -495,7 +509,7 @@ class _RideScreenState extends State<RideScreen> {
                   onPressed: () async {
                     final rideRequests = await rideRequestRepository.getByUserActive(user.id!);
                     final existsActive = rideRequests.any((e) {
-                      return e.rideId == widget.ride.ride.id && e.acceptedAt == null && e.cancelledAt == null;
+                      return e.rideId == widget.ride.ride.id && e.cancelledAt == null && e.deniedAt == null;
                     });
                     if (existsActive) {
                       openSnackbar(context, intl.request_exists, Colors.red, 3);

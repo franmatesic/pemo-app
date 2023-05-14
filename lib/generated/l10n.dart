@@ -1149,6 +1149,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input price`
+  String get price_missing {
+    return Intl.message(
+      'Input price',
+      name: 'price_missing',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

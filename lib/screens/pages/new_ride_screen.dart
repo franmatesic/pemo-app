@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_map_polyline_new/google_map_polyline_new.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
@@ -53,6 +54,7 @@ class _NewRideScreenState extends State<NewRideScreen> {
 
   var _date = DateTime.now();
   var _time = TimeOfDay.now();
+  var _price = 2.0;
   var _multipleDates = false;
   Duration _dateDuration = const Duration(days: 1);
   final _preferredPaymentMethods = [PemoPaymentMethod.cash];
@@ -126,14 +128,14 @@ class _NewRideScreenState extends State<NewRideScreen> {
 
   _createRide() async {
     if (_multipleDates) {
-      for (var i = 0; i < _dateDuration.inDays; i++) {
+      for (var i = 0; i <= _dateDuration.inDays; i++) {
         final date = _date.add(Duration(days: i));
-        final ride = PemoRide(const Uuid().v4(), _user.id!, _vehicle!.id, _fromMarker.position, _toMarker.position, _preferredPaymentMethods,
+        final ride = PemoRide(const Uuid().v4(), _user.id!, _vehicle!.id, _fromMarker.position, _toMarker.position, _price, _preferredPaymentMethods,
             DateTime(date.year, date.month, date.day, _time.hour, _time.minute), DateTime.now());
         await rideRepository.create(ride);
       }
     } else {
-      final ride = PemoRide(const Uuid().v4(), _user.id!, _vehicle!.id, _fromMarker.position, _toMarker.position, _preferredPaymentMethods,
+      final ride = PemoRide(const Uuid().v4(), _user.id!, _vehicle!.id, _fromMarker.position, _toMarker.position, _price, _preferredPaymentMethods,
           DateTime(_date.year, _date.month, _date.day, _time.hour, _time.minute), DateTime.now());
       await rideRepository.create(ride);
     }
@@ -331,12 +333,6 @@ class _NewRideScreenState extends State<NewRideScreen> {
                                                               child: Column(
                                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                                 children: [
-                                                                  Text(
-                                                                    intl.ride_options,
-                                                                    textAlign: TextAlign.center,
-                                                                    style: textStyle(Palette.black, FontSize.lg),
-                                                                  ),
-                                                                  const SizedBox(height: 20),
                                                                   Flex(
                                                                     direction: Axis.horizontal,
                                                                     children: [
@@ -372,7 +368,7 @@ class _NewRideScreenState extends State<NewRideScreen> {
                                                                               : dateFormatter.format(_date)),
                                                                         ),
                                                                       ),
-                                                                      const SizedBox(width: 20),
+                                                                      const SizedBox(width: 10),
                                                                       Expanded(
                                                                         child: FilledButton(
                                                                           style: flippedButtonStyle(),
@@ -394,6 +390,18 @@ class _NewRideScreenState extends State<NewRideScreen> {
                                                                     value: _multipleDates,
                                                                     onChanged: (value) => setState(() => _multipleDates = value!),
                                                                   ),
+                                                                  Text(intl.price),
+                                                                  TextFormField(
+                                                                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d{0,2}'))],
+                                                                    validator: (value) {
+                                                                      if (value == null || value.isEmpty) {
+                                                                        return intl.price_missing;
+                                                                      }
+                                                                      return null;
+                                                                    },
+                                                                    onChanged: (value) => _price = double.parse(value),
+                                                                  ),
+                                                                  const SizedBox(height: 10),
                                                                   Text(intl.vehicle),
                                                                   DropdownButtonFormField(
                                                                     items: _vehicles
@@ -419,7 +427,7 @@ class _NewRideScreenState extends State<NewRideScreen> {
                                                                     colorator: (String value) => _preferredPaymentMethods.contains(value)
                                                                         ? Palette.primary
                                                                         : Palette.neutral500,
-                                                                    textStyle: textStyle(Palette.white, FontSize.md),
+                                                                    textStyle: textStyle(Palette.white, FontSize.sm),
                                                                     onTap: (String value) {
                                                                       if (_preferredPaymentMethods.contains(value)) {
                                                                         setState(() => _preferredPaymentMethods.remove(value));

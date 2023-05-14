@@ -115,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Preferred payment method"),
         "preferred_payment_methods":
             MessageLookupByLibrary.simpleMessage("Preferred payment methods"),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
+        "price_missing": MessageLookupByLibrary.simpleMessage("Input price"),
         "provider_error": MessageLookupByLibrary.simpleMessage(
             "Account already exists with different provider"),
         "rebook": MessageLookupByLibrary.simpleMessage("Rebook"),
