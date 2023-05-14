@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_places_flutter/google_places_flutter.dart';
 import 'package:google_places_flutter/model/prediction.dart';
+import 'package:pemo/secrets.dart';
 import 'package:pemo/utils/places.dart';
 
 import '../theme/light_theme.dart';
@@ -55,7 +56,7 @@ class PemoAutocomplete extends StatelessWidget {
         hintText: hint,
       ),
       textEditingController: controller,
-      googleAPIKey: 'AIzaSyBXnvOvWt_VZ1pTDJjQ0gxMZpEu75riko8',
+      googleAPIKey: googleApiKey,
       isLatLngRequired: true,
       getPlaceDetailWithLatLng: (prediction) async {
         final location = LatLng(double.parse(prediction.lat!), double.parse(prediction.lng!));

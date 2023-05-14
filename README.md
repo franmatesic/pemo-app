@@ -1,16 +1,21 @@
-# pemo
+# PEMO application
 
-PEMO application
+## Predefinirani korisnici
 
-## Getting Started
+> role: `PUTNIK`
+>
+> email: `putnik@pemo.hr`
+>
+> password: `password`
 
-This project is a starting point for a Flutter application.
+> role: `VOZAČ`
+>
+> email: `vozac@pemo.hr`
+>
+> password: `password`
 
-A few resources to get you started if this is your first Flutter project:
+## Korištenje aplikacije
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Registracija
+  - Unijeti email i password ili koristiti vanjskiu servis (Google ili Facebook)
+  - Ispuniti potrebne informacije: rola, ime, spol, datum rođenja i broj telefona (Mogu biti izmišljene)

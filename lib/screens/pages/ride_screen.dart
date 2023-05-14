@@ -7,6 +7,7 @@ import 'package:pemo/repository/ride_request_repository.dart';
 import 'package:pemo/repository/user_repository.dart';
 import 'package:pemo/repository/vehicle_repository.dart';
 import 'package:pemo/screens/main_screen.dart';
+import 'package:pemo/secrets.dart';
 import 'package:pemo/utils/dialogs.dart';
 import 'package:pemo/widgets/pemo_rating.dart';
 import 'package:pemo/widgets/pemo_ride_request_card.dart';
@@ -75,7 +76,7 @@ class _RideScreenState extends State<RideScreen> {
   @override
   void initState() {
     super.initState();
-    _mapPolyline = GoogleMapPolyline(apiKey: 'AIzaSyBXnvOvWt_VZ1pTDJjQ0gxMZpEu75riko8');
+    _mapPolyline = GoogleMapPolyline(apiKey: googleApiKey);
 
     _setupLocations();
     _setMaxPassengers();

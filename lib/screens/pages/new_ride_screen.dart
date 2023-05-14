@@ -7,6 +7,7 @@ import 'package:pemo/model/enums.dart';
 import 'package:pemo/model/pemo_vehicle.dart';
 import 'package:pemo/repository/ride_repository.dart';
 import 'package:pemo/screens/main_screen.dart';
+import 'package:pemo/secrets.dart';
 import 'package:pemo/utils/dialogs.dart';
 import 'package:pemo/utils/places.dart';
 import 'package:pemo/widgets/pemo_autocomplete.dart';
@@ -66,7 +67,7 @@ class _NewRideScreenState extends State<NewRideScreen> {
   @override
   void initState() {
     super.initState();
-    _mapPolyline = GoogleMapPolyline(apiKey: 'AIzaSyBXnvOvWt_VZ1pTDJjQ0gxMZpEu75riko8');
+    _mapPolyline = GoogleMapPolyline(apiKey: googleApiKey);
 
     _getLocation();
   }
